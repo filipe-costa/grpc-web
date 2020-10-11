@@ -1,0 +1,28 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "Nodejs grpc server using typescript",
+  "main": "index.ts",
+  "scripts": {
+    "start": "ts-node-dev ./index.ts",
+    "autogen": "sh ./scripts/generate_code.sh",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@grpc/grpc-js": "^1.1.7",
+    "@grpc/proto-loader": "^0.5.5",
+    "@types/google-protobuf": "^3.7.3",
+    "@types/node": "^14.11.8",
+    "google-protobuf": "^3.13.0",
+    "grpc": "^1.24.3",
+    "grpc-web": "^1.2.1",
+    "ts-node-dev": "^1.0.0-pre.63",
+    "typescript": "^4.0.3"
+  },
+  "devDependencies": {
+    "grpc-tools": "^1.9.1",
+    "grpc_tools_node_protoc_ts": "^5.0.0"
+  }
+}

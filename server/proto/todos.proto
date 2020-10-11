@@ -1,0 +1,51 @@
+syntax = "proto3";
+
+package todos;
+
+// Describe a Todo
+message Todo {
+    string uuid = 1;
+    string description = 2;
+    bool done = 3;
+}
+
+// Create todo request
+message CreateTodoRequest {
+    string uuid = 1;
+    string description = 2;
+    bool done = 3;
+}
+
+// Edit todo request
+message EditTodoRequest {
+    string uuid = 1;
+    string description = 2;
+    bool done = 3;
+}
+
+// Delete todo request
+message DeleteTodoRequest {
+    string uuid = 1;
+}
+
+// Get todos request
+message GetTodosRequest {}
+
+// Describe GetTodosResponse
+message GetTodosResponse {
+    repeated Todo todos = 1;
+}
+
+service Todos {
+    // Get Todos
+    rpc GetTodos(GetTodosRequest) returns (GetTodosResponse);
+
+    // Creates a todo
+    rpc CreateTodo(CreateTodoRequest) returns (Todo);
+
+    // Edit a todo
+    rpc EditTodo(EditTodoRequest) returns (Todo);
+
+    // Deletes a todo
+    rpc DeleteTodo(DeleteTodoRequest) returns (Todo);
+}
