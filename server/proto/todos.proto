@@ -28,6 +28,8 @@ message DeleteTodoRequest {
     string uuid = 1;
 }
 
+message DeleteTodoResponse {}
+
 // Get todos request
 message GetTodosRequest {}
 
@@ -47,5 +49,5 @@ service Todos {
     rpc EditTodo(EditTodoRequest) returns (Todo);
 
     // Deletes a todo
-    rpc DeleteTodo(DeleteTodoRequest) returns (Todo);
+    rpc DeleteTodo(DeleteTodoRequest) returns (DeleteTodoResponse);
 }

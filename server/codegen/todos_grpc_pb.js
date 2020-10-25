@@ -26,6 +26,17 @@ function deserialize_todos_DeleteTodoRequest(buffer_arg) {
   return todos_pb.DeleteTodoRequest.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
+function serialize_todos_DeleteTodoResponse(arg) {
+  if (!(arg instanceof todos_pb.DeleteTodoResponse)) {
+    throw new Error('Expected argument of type todos.DeleteTodoResponse');
+  }
+  return Buffer.from(arg.serializeBinary());
+}
+
+function deserialize_todos_DeleteTodoResponse(buffer_arg) {
+  return todos_pb.DeleteTodoResponse.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
 function serialize_todos_EditTodoRequest(arg) {
   if (!(arg instanceof todos_pb.EditTodoRequest)) {
     throw new Error('Expected argument of type todos.EditTodoRequest');
@@ -114,11 +125,11 @@ deleteTodo: {
     requestStream: false,
     responseStream: false,
     requestType: todos_pb.DeleteTodoRequest,
-    responseType: todos_pb.Todo,
+    responseType: todos_pb.DeleteTodoResponse,
     requestSerialize: serialize_todos_DeleteTodoRequest,
     requestDeserialize: deserialize_todos_DeleteTodoRequest,
-    responseSerialize: serialize_todos_Todo,
-    responseDeserialize: deserialize_todos_Todo,
+    responseSerialize: serialize_todos_DeleteTodoResponse,
+    responseDeserialize: deserialize_todos_DeleteTodoResponse,
   },
 };
 

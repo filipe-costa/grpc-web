@@ -156,28 +156,28 @@ export class TodosClient {
   }
 
   methodInfoDeleteTodo = new grpcWeb.AbstractClientBase.MethodInfo(
-    todos_pb.Todo,
+    todos_pb.DeleteTodoResponse,
     (request: todos_pb.DeleteTodoRequest) => {
       return request.serializeBinary();
     },
-    todos_pb.Todo.deserializeBinary
+    todos_pb.DeleteTodoResponse.deserializeBinary
   );
 
   deleteTodo(
     request: todos_pb.DeleteTodoRequest,
-    metadata: grpcWeb.Metadata | null): Promise<todos_pb.Todo>;
+    metadata: grpcWeb.Metadata | null): Promise<todos_pb.DeleteTodoResponse>;
 
   deleteTodo(
     request: todos_pb.DeleteTodoRequest,
     metadata: grpcWeb.Metadata | null,
     callback: (err: grpcWeb.Error,
-               response: todos_pb.Todo) => void): grpcWeb.ClientReadableStream<todos_pb.Todo>;
+               response: todos_pb.DeleteTodoResponse) => void): grpcWeb.ClientReadableStream<todos_pb.DeleteTodoResponse>;
 
   deleteTodo(
     request: todos_pb.DeleteTodoRequest,
     metadata: grpcWeb.Metadata | null,
     callback?: (err: grpcWeb.Error,
-               response: todos_pb.Todo) => void) {
+               response: todos_pb.DeleteTodoResponse) => void) {
     if (callback !== undefined) {
       return this.client_.rpcCall(
         this.hostname_ +

@@ -10,6 +10,7 @@ grpc_tools_node_protoc \
 
 # Typescript Web Codegen
 grpc_tools_node_protoc \
-  --grpc-web_out=import_style=typescript,mode=grpcwebtext:./codegen \
+    --js_out=import_style=commonjs,binary:../web/src/codegen \
+  --grpc-web_out=import_style=typescript,mode=grpcwebtext:../web/src/codegen \
   -I ./proto \
   ./proto/*.proto

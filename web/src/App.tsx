@@ -2,10 +2,10 @@ import React, { useEffect } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-import {TodosClient} from "../../server/web_codegen/TodosServiceClientPb"
-import {GetTodosRequest} from '../../server/web_codegen/todos_pb'
+import {TodosClient} from "./codegen/TodosServiceClientPb"
+import {GetTodosRequest} from './codegen/todos_pb'
 
-const client = new TodosClient('http://0.0.0.0:50051')
+const client = new TodosClient('http://0.0.0.0:8080')
 
 function App() {
   const getTodos = () => {
@@ -14,6 +14,7 @@ function App() {
   }
 
   useEffect(() => {
+    // @ts-ignore
     window.getTodos = getTodos
   })
 

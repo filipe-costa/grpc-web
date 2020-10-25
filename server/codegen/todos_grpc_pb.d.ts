@@ -42,14 +42,14 @@ interface ITodosService_IEditTodo extends grpc.MethodDefinition<todos_pb.EditTod
     responseSerialize: grpc.serialize<todos_pb.Todo>;
     responseDeserialize: grpc.deserialize<todos_pb.Todo>;
 }
-interface ITodosService_IDeleteTodo extends grpc.MethodDefinition<todos_pb.DeleteTodoRequest, todos_pb.Todo> {
+interface ITodosService_IDeleteTodo extends grpc.MethodDefinition<todos_pb.DeleteTodoRequest, todos_pb.DeleteTodoResponse> {
     path: "/todos.Todos/DeleteTodo";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<todos_pb.DeleteTodoRequest>;
     requestDeserialize: grpc.deserialize<todos_pb.DeleteTodoRequest>;
-    responseSerialize: grpc.serialize<todos_pb.Todo>;
-    responseDeserialize: grpc.deserialize<todos_pb.Todo>;
+    responseSerialize: grpc.serialize<todos_pb.DeleteTodoResponse>;
+    responseDeserialize: grpc.deserialize<todos_pb.DeleteTodoResponse>;
 }
 
 export const TodosService: ITodosService;
@@ -58,7 +58,7 @@ export interface ITodosServer {
     getTodos: grpc.handleUnaryCall<todos_pb.GetTodosRequest, todos_pb.GetTodosResponse>;
     createTodo: grpc.handleUnaryCall<todos_pb.CreateTodoRequest, todos_pb.Todo>;
     editTodo: grpc.handleUnaryCall<todos_pb.EditTodoRequest, todos_pb.Todo>;
-    deleteTodo: grpc.handleUnaryCall<todos_pb.DeleteTodoRequest, todos_pb.Todo>;
+    deleteTodo: grpc.handleUnaryCall<todos_pb.DeleteTodoRequest, todos_pb.DeleteTodoResponse>;
 }
 
 export interface ITodosClient {
@@ -71,9 +71,9 @@ export interface ITodosClient {
     editTodo(request: todos_pb.EditTodoRequest, callback: (error: grpc.ServiceError | null, response: todos_pb.Todo) => void): grpc.ClientUnaryCall;
     editTodo(request: todos_pb.EditTodoRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: todos_pb.Todo) => void): grpc.ClientUnaryCall;
     editTodo(request: todos_pb.EditTodoRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: todos_pb.Todo) => void): grpc.ClientUnaryCall;
-    deleteTodo(request: todos_pb.DeleteTodoRequest, callback: (error: grpc.ServiceError | null, response: todos_pb.Todo) => void): grpc.ClientUnaryCall;
-    deleteTodo(request: todos_pb.DeleteTodoRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: todos_pb.Todo) => void): grpc.ClientUnaryCall;
-    deleteTodo(request: todos_pb.DeleteTodoRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: todos_pb.Todo) => void): grpc.ClientUnaryCall;
+    deleteTodo(request: todos_pb.DeleteTodoRequest, callback: (error: grpc.ServiceError | null, response: todos_pb.DeleteTodoResponse) => void): grpc.ClientUnaryCall;
+    deleteTodo(request: todos_pb.DeleteTodoRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: todos_pb.DeleteTodoResponse) => void): grpc.ClientUnaryCall;
+    deleteTodo(request: todos_pb.DeleteTodoRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: todos_pb.DeleteTodoResponse) => void): grpc.ClientUnaryCall;
 }
 
 export class TodosClient extends grpc.Client implements ITodosClient {
@@ -87,7 +87,7 @@ export class TodosClient extends grpc.Client implements ITodosClient {
     public editTodo(request: todos_pb.EditTodoRequest, callback: (error: grpc.ServiceError | null, response: todos_pb.Todo) => void): grpc.ClientUnaryCall;
     public editTodo(request: todos_pb.EditTodoRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: todos_pb.Todo) => void): grpc.ClientUnaryCall;
     public editTodo(request: todos_pb.EditTodoRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: todos_pb.Todo) => void): grpc.ClientUnaryCall;
-    public deleteTodo(request: todos_pb.DeleteTodoRequest, callback: (error: grpc.ServiceError | null, response: todos_pb.Todo) => void): grpc.ClientUnaryCall;
-    public deleteTodo(request: todos_pb.DeleteTodoRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: todos_pb.Todo) => void): grpc.ClientUnaryCall;
-    public deleteTodo(request: todos_pb.DeleteTodoRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: todos_pb.Todo) => void): grpc.ClientUnaryCall;
+    public deleteTodo(request: todos_pb.DeleteTodoRequest, callback: (error: grpc.ServiceError | null, response: todos_pb.DeleteTodoResponse) => void): grpc.ClientUnaryCall;
+    public deleteTodo(request: todos_pb.DeleteTodoRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: todos_pb.DeleteTodoResponse) => void): grpc.ClientUnaryCall;
+    public deleteTodo(request: todos_pb.DeleteTodoRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: todos_pb.DeleteTodoResponse) => void): grpc.ClientUnaryCall;
 }
