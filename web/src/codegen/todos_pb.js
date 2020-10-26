@@ -8,6 +8,9 @@
  */
 // GENERATED CODE -- DO NOT EDIT!
 
+/* tslint:disable */
+/* eslint-disable */
+
 var jspb = require('google-protobuf');
 var goog = jspb;
 var global = Function('return this')();

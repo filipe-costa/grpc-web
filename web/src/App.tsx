@@ -2,20 +2,14 @@ import React, { useEffect } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-import {TodosClient} from "./codegen/TodosServiceClientPb"
-import {GetTodosRequest} from './codegen/todos_pb'
-
-const client = new TodosClient('http://0.0.0.0:8080')
+import service from "./services/todos"
 
 function App() {
-  const getTodos = () => {
-    const request = new GetTodosRequest()
-    client.getTodos(request, {})
-  }
 
   useEffect(() => {
     // @ts-ignore
-    window.getTodos = getTodos
+    service.getTodos()
+      .then((res) => console.log(res.toObject()))
   })
 
   return (

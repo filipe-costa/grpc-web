@@ -23,7 +23,7 @@ static_resources:
                 routes:
                 - match: { prefix: "/" }
                   route:
-                    cluster: echo_service
+                    cluster: grpc_service
                     max_grpc_timeout: 0s
                 cors:
                   allow_origin_string_match:
@@ -37,7 +37,7 @@ static_resources:
             - name: envoy.filters.http.cors
             - name: envoy.filters.http.router
     clusters:
-    - name: echo_service
+    - name: grpc_service
       connect_timeout: 0.25s
       type: logical_dns
       http2_protocol_options: {}
@@ -49,5 +49,5 @@ static_resources:
               - endpoint:
                   address:
                     socket_address:
-                      address: node-server
+                      address: host.docker.internal
                       port_value: 9090
