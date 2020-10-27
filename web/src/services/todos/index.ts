@@ -18,18 +18,26 @@ class TodosService {
         return await this.client.getTodos(req, null)
     }
 
-    createTodo = async(): Promise<Todo> => {
+    createTodo = async({uuid, description, done}: Todo.AsObject): Promise<Todo> => {
         const req = new CreateTodoRequest()
+        req.setUuid(uuid)
+        req.setDescription(description)
+        req.setDone(done)
         return await this.client.createTodo(req, null)
     }
 
-    editTodo = async(): Promise<Todo> => {
+    editTodo = async({uuid, description, done}: Todo.AsObject): Promise<Todo> => {
+        console.log('EditTodo', {uuid, description, done})
         const req = new EditTodoRequest()
+        req.setUuid(uuid)
+        req.setDescription(description)
+        req.setDone(done)
         return await this.client.editTodo(req, null)
     }
 
-    deleteTodo = async(): Promise<DeleteTodoResponse> => {
+    deleteTodo = async({uuid}: {uuid: string}): Promise<DeleteTodoResponse> => {
         const req = new DeleteTodoRequest()
+        req.setUuid(uuid)
         return await this.client.deleteTodo(req, null)
     }
 

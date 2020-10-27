@@ -61,8 +61,9 @@ class TodosServer implements ITodosServer {
             }
         })
             .then((id: any[]) => {
-                TodoModel.findOne({where: id[0]})
+                TodoModel.findOne({where: {uuid}})
                     .then((todo: any) => {
+                        console.log(id)
                         req.setUuid(todo.uuid)
                         req.setDone(todo.done)
                         req.setDescription(todo.description)
