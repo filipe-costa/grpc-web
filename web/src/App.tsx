@@ -102,7 +102,8 @@ function App() {
         setTodos(res.toObject().todosList);
       })
       .catch((error) => {
-        console.log(error);
+        setError(error)
+        console.error(error);
       })
       .finally(() => {
         setIsLoading(false);
