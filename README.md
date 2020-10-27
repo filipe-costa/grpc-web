@@ -64,7 +64,3 @@ Start web app:
 $ cd /path/to/web
 $ yarn start
 ```
-
-# Todo
-
-- Add prettier / eslint to both web app and server

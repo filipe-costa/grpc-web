@@ -25,6 +25,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "prettier:fix": "prettier --write ./src",
     "cypress:test": "yarn run cypress open",
     "run-envoy": "cd ./envoy && sh ./build.sh",
     "test": "react-scripts test",
@@ -44,5 +45,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "prettier": "2.1.2"
   }
 }

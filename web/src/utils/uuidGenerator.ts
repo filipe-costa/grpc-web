@@ -1,6 +1,6 @@
-let uuid = 0
+let uuid = 0;
 
 export const generateUuid = () => {
-  uuid++
-  return uuid.toString()
-}
+  uuid++;
+  return uuid.toString();
+};
