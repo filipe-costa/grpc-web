@@ -19,12 +19,12 @@ server.bindAsync('0.0.0.0:9090', grpc.ServerCredentials.createInsecure(), (error
     }
 })
 
-// Need to export sequelize due to the models accepting it :/
 const sequelize = new Sequelize(process.env.DB_NAME, process.env.DB_USER, process.env.DB_PASSWORD, {
     host: process.env.DB_HOST,
     dialect: (process.env.DB_DIALECT as Dialect)
 })
 
+// Have to create the model here because of Sequelize...
 export const TodoModel = sequelize.define('Todo', {
     uuid: {
         type: DataTypes.UUID,
@@ -39,8 +39,10 @@ export const TodoModel = sequelize.define('Todo', {
     }
 })
 
+// This creates the Todo Table in the Todos DB
 sequelize.sync()
 
+// Checks if sequelize is working, good for debugging
 sequelize.authenticate()
     .then(() => {
         console.log('Connection has been established successfully.');
