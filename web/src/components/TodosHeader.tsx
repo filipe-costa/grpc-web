@@ -19,7 +19,7 @@ export const TodosHeader: FC<ITodosHeaderProps> = ({
     <Grid item container xs={12} sm={6}>
       <Grid container direction="column" alignItems="center">
         <Typography variant="h3" component="h3" gutterBottom>
-          Todo
+          TodoGRPC
         </Typography>
         <Typography variant="body1" gutterBottom>
           What are you looking to do today?
