@@ -1,3 +1,7 @@
+# Simple GRPC-Web Todo App
+
+![](todo-grpc-web.gif)
+
 # About
 
 This full-stack application was built using the following technologies:

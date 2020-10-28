@@ -69,6 +69,7 @@ function App() {
       };
       const newTodos = [newTodo, ...todos];
       setTodos(() => newTodos);
+      setTodo("")
       service
         .createTodo(newTodo)
         .then((res) => {
